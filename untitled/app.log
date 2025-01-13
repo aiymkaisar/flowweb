@@ -1,0 +1,8 @@
+жел. 09, 2024 8:58:21 AM FileLoggingExample main
+INFO: Лог файлға жазылды.
+жел. 09, 2024 8:58:21 AM FileLoggingExample main
+WARNING: Бұл файлдағы ескерту.
+жел. 09, 2024 9:10:13 AM FileLoggingExample main
+INFO: Это сообщение записано в файл.
+жел. 09, 2024 9:10:13 AM FileLoggingExample main
+WARNING: Это предупреждающее сообщение.

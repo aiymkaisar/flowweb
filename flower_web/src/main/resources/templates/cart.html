@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<!-- Header -->
+<header>
+    <input type="checkbox" id="toggler">
+    <label for="toggler" class="fas fa-bars"></label>
+    <a href="#" class="logo">Nature's<span> Bouquet</span></a>
+    <nav class="navbar">
+        <a href="/flower">home</a>
+        <a href="/products">products</a>
+        <a href="#review">review</a>
+        <a href="#contact">contact</a>
+    </nav>
+    <div class="icons">
+        <a href="#" class="fas fa-heart"></a>
+        <a href="/cart" class="fas fa-shopping-cart"></a>
+        <a href="/details" class="fas fa-user"></a>
+        <a href="/admin" class="fa-solid fa-user-tie"></a>
+    </div>
+</header>
+
+<!-- Orders Section -->
+<section class="orders" id="orders">
+    <h1 class="heading" style="margin-top: 75px;">Your Orders on <span>Nature's Bouquet</span></h1>
+    <div class="box-container">
+        <!-- Loop through products in the cart -->
+        <div class="box" th:each="product : ${orders}">
+            <div class="content">
+                <img th:src="${product.imageUrl}" alt="Product Image" class="product-image">
+                <h3 th:text="${product.name}"></h3>
+                <div class="price">$<span th:text="${product.price}"></span></div>
+                <a th:href="@{'/remove-from-cart/' + ${product.id}}" class="btn">Remove</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Checkout Form -->
+<section class="checkout" id="checkout">
+    <h2>Checkout</h2>
+    <form th:action="@{/checkout}" method="post" class="checkout-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" placeholder="Enter your address" required>
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        <button type="submit" class="btn">Proceed to Payment</button>
+    </form>
+</section>
+
+<!-- Fake Payment Section -->
+<section class="payment" id="payment">
+    <h2>Payment</h2>
+    <p>Total Amount: $<span th:text="${totalAmount}"></span></p>
+    <form th:action="@{/fake-payment}" method="post" class="payment-form">
+        <button type="submit" class="btn">Pay Now</button>
+    </form>
+</section>
+
+</body>
+</html>

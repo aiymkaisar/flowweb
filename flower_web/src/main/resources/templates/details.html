@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Details</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/details.css">
+</head>
+<body>
+
+<!-- Навигационная панель -->
+<header class="navbar-header">
+  <input type="checkbox" id="toggler">
+  <label for="toggler" class="fas fa-bars"></label>
+  <a href="#" class="logo">Nature's<span> Bouquet</span></a>
+  <nav class="navbar">
+    <a href="flower.html">Home</a>
+    <a href="#about">About</a>
+    <a href="#products">Products</a>
+    <a href="#review">Review</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="icons">
+    <a href="#" class="fas fa-heart"></a>
+    <a href="/cart" class="fas fa-shopping-cart"></a>
+    <a href="/details" class="fas fa-user"></a>
+  </div>
+</header>
+
+<!-- Блок для фонового изображения -->
+<section class="divider">
+  <img src="/images/account_details.jpg" alt="Divider Image">
+</section>
+
+<div class="container">
+  <aside class="sidebar">
+    <ul>
+      <li><a href="/orders">🏠 Orders</a></li>
+      <li><a href="/details" class="active">👤 Account Details</a></li>
+      <li><a href="/login">↩ Logout</a></li>
+    </ul>
+  </aside>
+  <main class="content">
+    <h1>Account Details</h1>
+    <section class="account-info">
+      <label for="email">Email Address</label>
+      <textarea readonly id="email" th:text="${userEmail}">Email Address</textarea>
+    </section>
+  </main>
+</div>
+</body>
+</html>

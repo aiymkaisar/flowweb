@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+<header>
+    <h1>Admin Panel</h1>
+    <nav>
+        <a href="/flower">Back to Home</a>
+    </nav>
+</header>
+<section class="divider">
+    <img src="/images/account_details.jpg" alt="Divider Image">
+</section>
+<main>
+    <h2>Manage Products</h2>
+
+    <!-- Сообщения об успехе или ошибке -->
+    <div th:if="${success}" class="alert alert-success">
+        <p th:text="${success}"></p>
+    </div>
+    <div th:if="${error}" class="alert alert-danger">
+        <p th:text="${error}"></p>
+    </div>
+
+    <!-- Форма добавления нового продукта -->
+    <h3>Add New Product</h3>
+    <form action="/admin/add-product" method="post" th:object="${newProduct}">
+        <div>
+            <label for="name">Product Name:</label>
+            <input type="text" id="name" th:field="*{name}" required>
+        </div>
+        <div>
+            <label for="price">Price:</label>
+            <input type="number" id="price" th:field="*{price}" required>
+        </div>
+        <div>
+            <label for="discount">Discount:</label>
+            <input type="number" id="discount" th:field="*{discount}" required>
+        </div>
+        <div>
+            <label for="original_price">Original Price:</label>
+            <input type="number" id="original_price" th:field="*{originalPrice}" required>
+        </div>
+        <div>
+            <label for="image_url">Image URL:</label>
+            <input type="text" id="image_url" th:field="*{imageUrl}" required>
+        </div>
+        <button type="submit">Add Product</button>
+    </form>
+
+
+    <!-- Список всех продуктов -->
+    <h3>All Products</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Discount</th>
+            <th>Original Price</th>
+            <th>Image URL</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.price}"></td>
+            <td th:text="${product.discount}"></td>
+            <td th:text="${product.originalPrice}"></td>
+            <td th:text="${product.imageUrl}"></td>
+            <td>
+                <!-- Кнопка редактирования -->
+                <button onclick="showEditForm(this)" data-product-id="${product.id}"
+                        data-name="${product.name}"
+                        data-price="${product.price}"
+                        data-discount="${product.discount}"
+                        data-original-price="${product.originalPrice}"
+                        data-image-url="${product.imageUrl}">Edit</button>
+                <!-- Кнопка удаления продукта -->
+                <a th:href="@{/admin/delete-product/{id}(id=${product.id})}" onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Форма редактирования продукта -->
+    <div id="editFormContainer" style="display: none;">
+        <h3>Edit Product</h3>
+        <form action="/admin/update-product/{id}" method="post" id="editForm">
+            <input type="hidden" id="editProductId" name="id" value="${product.id}">
+            <div>
+                <label for="editName">Product Name:</label>
+                <input type="text" id="editName" name="name" required>
+            </div>
+            <div>
+                <label for="editPrice">Price:</label>
+                <input type="number" id="editPrice" name="price" required>
+            </div>
+            <div>
+                <label for="editDiscount">Discount:</label>
+                <input type="number" id="editDiscount" name="discount" required>
+            </div>
+            <div>
+                <label for="editOriginalPrice">Original Price:</label>
+                <input type="number" id="editOriginalPrice" name="original_price" required>
+            </div>
+            <div>
+                <label for="editImageUrl">Image URL:</label>
+                <input type="text" id="editImageUrl" name="image_url" required>
+            </div>
+            <button type="submit">Save Changes</button>
+            <button type="button" onclick="hideEditForm()">Cancel</button>
+        </form>
+    </div>
+</main>
+<script src="/js/admin.js"></script>
+</body>
+</html>

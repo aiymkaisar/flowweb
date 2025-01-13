@@ -1,0 +1,268 @@
+:root{
+    --pink:#e84393;
+}
+
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    outline: none; border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+section{
+    padding: 2rem 9%;
+}
+
+.heading{
+    text-align: center;
+    font-size: 4rem;
+    color: #333;
+    padding: 1rem;
+    margin: 2rem 0;
+    background: rgba(255, 51, 153, .05);
+}
+
+.heading span{
+    color: var(--pink);
+}
+
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    border-radius: 5rem;
+    background: #333;
+    color: #fff;
+    padding: .9rem 3.5rem;
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+
+.btn:hover{
+    background: var(--pink);
+}
+
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    overflow-x:hidden;
+}
+
+header{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: #fff;
+    padding: 2rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+header .logo{
+    font-size: 3rem;
+    color:#333;
+    font-weight: bolder;
+}
+
+header .logo span{
+    color:var(--pink);
+}
+
+header .navbar a{
+    font-size: 2rem;
+    padding:0 1.5rem;
+    color:#666;
+}
+
+header .navbar a:hover{
+    color:var(--pink);
+}
+
+header .icons a{
+    font-size: 2.5rem;
+    color: #333;
+    margin-left: 1.5rem;
+}
+
+header .icons a:hover{
+    color:var(--pink);
+}
+
+header #toggler{
+    display: none;
+}
+
+header .fa-bars{
+    font-size: 3rem;
+    color:#333;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    cursor: pointer;
+    border: 1rem solid rgba(0,0,0,.3);
+    display: none;
+}
+
+
+/* media queries */
+@media (max-width: 991px){
+    html{
+        font-size: 55%;
+    }
+    header{
+        padding: 2rem;
+
+    }
+    section{
+        padding: 2rem;
+    }
+    .home {
+        background-position: left;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Показываем иконку меню на мобильных устройствах */
+    header .fa-bars {
+        display: block;
+    }
+
+    /* Изначально скрываем навигацию */
+    header .navbar {
+        display: none; /* Скрыта по умолчанию */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #eee;
+        border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+    }
+
+    /* Показываем навигацию, когда чекбокс активен */
+    header #toggler:checked ~ .navbar {
+        display: block; /* Показываем навигацию */
+    }
+
+    /* Оформление ссылок в навигации */
+    header .navbar a {
+        margin: 1.5rem;
+        padding: 1.5rem;
+        background: #fff;
+        border: 1rem solid rgba(0, 0, 0, 0.1);
+        display: block;
+    }
+
+    .home .content h3{
+        font-size: 5rem;
+    }
+    .home .content span{
+        font-size: 2.5rem;
+    }
+
+}
+@media (max-width: 450px){
+    html{
+        font-size: 50%;
+    }
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+}
+
+.divider {
+    padding-top: 7rem; /* Чтобы создать отступ после навигационной панели */
+    text-align: center;
+    margin: 0; /* Убираем лишние отступы */
+}
+
+.divider img {
+    width: 100vw; /* Устанавливаем ширину на весь экран */
+    max-height: 10rem; /* Настройте высоту по вашему усмотрению */
+    object-fit: cover;
+}
+
+
+
+
+.container {
+    display: flex;
+    width: 90%;
+    max-width: 1500px;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.sidebar {
+    width: 20%;
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 20px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.sidebar ul li a.active {
+    color: #d6455d;
+}
+
+.content {
+    width: 80%;
+    padding: 20px;
+}
+
+header h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.account-info {
+    background-color: #fde8e9;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.account-info label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.account-info textarea {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    resize: none;
+    background-color: #fff;
+}

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web App</title>
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+
+</head>
+<body>
+
+<!-- header section starts -->
+<header>
+
+    <input type="checkbox" name="" id="toggler">
+    <label for="toggler" class="fas fa-bars"></label>
+    <a href="#" class="logo">Nature's<span> Bouquet</span></a>
+    <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="/products">products</a>
+        <a href="#review">review</a>
+        <a href="/contact-us">contact</a>
+    </nav>
+
+    <div class="icons">
+        <a href="#" class="fas fa-heart"></a>
+        <a href="/cart" class="fas fa-shopping-cart"></a>
+        <a href="/register" class="fas fa-user"></a>
+        <a href="/login" class="fa-solid fa-user-tie"></a>
+    </div>
+    <!-- header section ends -->
+</header>
+
+<!-- home section starts -->
+
+<section class="home" id="home">
+    <div class="content">
+        <h3>Nature's Bouquet</h3>
+        <span>Natural & Beautiful Flowers</span>
+        <p>Rose, Tulip, Daisy, Lily, Sunflower, Orchid, Violet, Daffodil, Peony, Jasmine, Iris, Poppy, Lavender, Carnation, Marigold, Chrysanthemum, Hydrangea, Lotus.</p>
+        <a href="/products" class="btn">Shop now</a>
+    </div>
+</section>
+<!-- home section ends -->
+
+<!-- products section starts -->
+<section class="products" id="products">
+    <h1 class="heading"> latest <span>products</span></h1>
+    <div class="box-container">
+        <!-- Начало цикла Thymeleaf для отображения продуктов -->
+        <div class="box" th:each="product : ${product}">
+            <span class="discount">-<span th:text="${product.discount}"></span>%</span>
+            <div class="image">
+                <img th:src="${product.imageUrl}" alt="">
+                <div class="icons">
+                    <a href="#" class="fas fa-heart"></a>
+                    <a th:href="@{'/add-to-cart/' + ${product.id}}" class="card-btn">add to cart</a>
+                    <a href="#" class="fas fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3 th:text="${product.name}"></h3>
+                <div class="price">$ <span th:text="${product.price}"></span> <span>$<span th:text="${product.originalPrice}"></span></span></div>
+            </div>
+        </div>
+        <!-- Конец цикла Thymeleaf -->
+    </div>
+</section>
+<!-- products section ends -->
+<section class="contact-us">
+    <h1 class="heading"> Contact <span>Us</span></h1>
+    <div class="info-boxes">
+        <div class="info-box">
+            <div class="icons"><i class="fa-solid fa-location-dot"></i></div>
+            <h2>our location</h2>
+            <p>(800) 123 456 789 / (800) 123 456 789</p>
+            <p>info@example.com</p>
+        </div>
+        <div class="info-box">
+            <div class="icons"><i class="fa-solid fa-phone"></i></div>
+            <h2>contact us anytime</h2>
+            <p>mobile: 012 345 678</p>
+            <p>fax: 123 456 789</p>
+        </div>
+        <div class="info-box">
+            <div class="icons"><i class="fa-regular fa-envelope"></i></div>
+            <h2>support overall</h2>
+            <p>support 24/7@example.com</p>
+            <p>info@example.com</p>
+        </div>
+    </div>
+    <form class="contact-form">
+        <div class="form-group">
+            <label for="name">name</label>
+            <textarea id="name" placeholder="Your name"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="subject">subject</label>
+            <textarea id="subject" placeholder="Subject"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="email">email</label>
+            <textarea id="email" placeholder="Your email"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="message">message</label>
+            <textarea id="message" placeholder="Your message"></textarea>
+        </div>
+        <button type="submit" class="btn">send a message</button>
+    </form>
+</section>
+
+
+<section class="review-section">
+    <div class="header">
+        <h1 class="heading"> Review </h1>
+    </div>
+    <div class="content">
+        <h2>Latest reviews</h2>
+        <div class="reviews">
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <h3>Review title</h3>
+                <p>Review body</p>
+                <div class="reviewer-info">
+                    <img src="reviewer.jpg" alt="R" class="reviewer-img">
+                    <div>
+                        <p class="reviewer-name">Name</p>
+                        <p class="review-date">Date</p>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <h3>Review title</h3>
+                <p>Review body</p>
+                <div class="reviewer-info">
+                    <img src="reviewer.jpg" alt="Reviewer" class="reviewer-img">
+                    <div>
+                        <p class="reviewer-name">Reviewer name</p>
+                        <p class="review-date">Date</p>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <h3>Review title</h3>
+                <p>Review body</p>
+                <div class="reviewer-info">
+                    <img src="reviewer.jpg" alt="Reviewer" class="reviewer-img">
+                    <div>
+                        <p class="reviewer-name">Reviewer name</p>
+                        <p class="review-date">Date</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="icons">
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-github-alt"></i></a>
+            <a href="#"><i class="fa-brands fa-threads"></i></a>
+        </div>
+        <div class="footer-links">
+            <div>
+                <h3>Use cases</h3>
+                <ul>
+                    <li>UI design</li>
+                    <li>UX design</li>
+                    <li>Wireframing</li>
+                    <li>Diagramming</li>
+                    <li>Brainstorming</li>
+                    <li>Online whiteboard</li>
+                    <li>Team collaboration</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Explore</h3>
+                <ul>
+                    <li>Design</li>
+                    <li>Prototyping</li>
+                    <li>Development features</li>
+                    <li>Design systems</li>
+                    <li>Collaboration features</li>
+                    <li>Design process</li>
+                    <li>FigJam</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Resources</h3>
+                <ul>
+                    <li>Blog</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/js/scripts.js"></script>
+</body>
+</html>
