@@ -5,14 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Web App</title>
-    <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="/css/styles.css">
 
 </head>
 <body>
 
-<!-- header section starts -->
 <header>
 
     <input type="checkbox" name="" id="toggler">
@@ -31,10 +29,8 @@
         <a href="/register" class="fas fa-user"></a>
         <a href="/login" class="fa-solid fa-user-tie"></a>
     </div>
-    <!-- header section ends -->
 </header>
 
-<!-- home section starts -->
 
 <section class="home" id="home">
     <div class="content">
@@ -44,13 +40,10 @@
         <a href="/products" class="btn">Shop now</a>
     </div>
 </section>
-<!-- home section ends -->
 
-<!-- products section starts -->
 <section class="products" id="products">
     <h1 class="heading"> latest <span>products</span></h1>
     <div class="box-container">
-        <!-- Начало цикла Thymeleaf для отображения продуктов -->
         <div class="box" th:each="product : ${product}">
             <span class="discount">-<span th:text="${product.discount}"></span>%</span>
             <div class="image">
@@ -66,10 +59,8 @@
                 <div class="price">$ <span th:text="${product.price}"></span> <span>$<span th:text="${product.originalPrice}"></span></span></div>
             </div>
         </div>
-        <!-- Конец цикла Thymeleaf -->
     </div>
 </section>
-<!-- products section ends -->
 <section class="contact-us">
     <h1 class="heading"> Contact <span>Us</span></h1>
     <div class="info-boxes">
