@@ -1,7 +1,6 @@
 :root{
     --pink:#e84393;
 }
-/* Основные стили для тела страницы */
 
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -11,13 +10,11 @@ body {
     padding: 0;
 }
 
-/* Заголовки */
 h1, h2, h3 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
 }
 
-/* Стили для header */
 header {
     background-color: #f9f9f9;
     padding: 20px 30px;
@@ -48,23 +45,21 @@ header nav a:hover {
 
 .divider {
     text-align: center;
-    margin: 0; /* Убираем лишние отступы */
+    margin: 0;
 }
 
 .divider img {
-    width: 100vw; /* Устанавливаем ширину на весь экран */
-    max-height: 6rem; /* Настройте высоту по вашему усмотрению */
+    width: 100vw; 
+    max-height: 6rem;
     object-fit: cover;
 }
 
 
 
-/* Основной контент */
 main {
     padding: 40px;
 }
 
-/* Формы */
 form {
     background: rgba(255, 51, 153, .05);
     border-radius: 8px;
@@ -109,7 +104,6 @@ form button:hover {
     background-color: #ff3b2a;
 }
 
-/* Стили для уведомлений */
 .alert {
     padding: 15px;
     margin-bottom: 20px;
@@ -127,7 +121,6 @@ form button:hover {
     color: #721c24;
 }
 
-/* Стили таблицы */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -152,7 +145,6 @@ table td {
     color: #4b4b4b;
 }
 
-/* Стили для кнопки редактирования и удаления */
 form button[type="submit"], a {
     display: inline-block;
     margin-top: 1rem;
@@ -167,8 +159,6 @@ form button[type="submit"], a {
 form button[type="submit"]:hover, a:hover {
     background: var(--pink);
 }
-
-/* Респонсивность для мобильных устройств */
 @media (max-width: 768px) {
     header {
         padding: 15px;
