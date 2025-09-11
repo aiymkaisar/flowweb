@@ -127,14 +127,12 @@ header .fa-bars{
 }
 
 @media (max-width: 768px) {
-    /* Показываем иконку меню на мобильных устройствах */
     header .fa-bars {
         display: block;
     }
 
-    /* Изначально скрываем навигацию */
     header .navbar {
-        display: none; /* Скрыта по умолчанию */
+        display: none;
         position: absolute;
         top: 100%;
         left: 0;
@@ -143,12 +141,10 @@ header .fa-bars{
         border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
     }
 
-    /* Показываем навигацию, когда чекбокс активен */
     header #toggler:checked ~ .navbar {
-        display: block; /* Показываем навигацию */
+        display: block;
     }
 
-    /* Оформление ссылок в навигации */
     header .navbar a {
         margin: 1.5rem;
         padding: 1.5rem;
@@ -180,14 +176,14 @@ body {
 }
 
 .divider {
-    padding-top: 7rem; /* Чтобы создать отступ после навигационной панели */
+    padding-top: 7rem;
     text-align: center;
-    margin: 0; /* Убираем лишние отступы */
+    margin: 0;
 }
 
 .divider img {
-    width: 100vw; /* Устанавливаем ширину на весь экран */
-    max-height: 10rem; /* Настройте высоту по вашему усмотрению */
+    width: 100vw;
+    max-height: 10rem;
     object-fit: cover;
 }
 
