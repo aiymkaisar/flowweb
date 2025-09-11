@@ -17,7 +17,7 @@ public class UserController {
 
     @GetMapping("/register")
     public String getRegisterPage(Model model) {
-        model.addAttribute("registerRequest", new User()); // Исправлено
+        model.addAttribute("registerRequest", new User());
         return "signin";
     }
 
@@ -35,7 +35,7 @@ public class UserController {
                 usersModel.getPassword(),
                 usersModel.getEmail()
         );
-        return registeredUser == null ? "error_page" : "redirect:/login"; // Исправлено на правильный путь
+        return registeredUser == null ? "error_page" : "redirect:/login";
     }
 
     @PostMapping("/login")
