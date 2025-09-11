@@ -20,7 +20,6 @@
 
       <button type="submit" class="sign-in-btn">Login</button>
 
-      <!-- Сообщение об ошибке -->
       <div th:if="${param.error}" th:text="'Invalid email or password'" class="error-message"></div>
 
       <a href="/register" class="login-link">Sign up</a>
