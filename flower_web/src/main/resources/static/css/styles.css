@@ -127,14 +127,12 @@ header .fa-bars{
 }
 
 @media (max-width: 768px) {
-    /* Показываем иконку меню на мобильных устройствах */
     header .fa-bars {
         display: block;
     }
 
-    /* Изначально скрываем навигацию */
     header .navbar {
-        display: none; /* Скрыта по умолчанию */
+        display: none;
         position: absolute;
         top: 100%;
         left: 0;
@@ -143,12 +141,10 @@ header .fa-bars{
         border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
     }
 
-    /* Показываем навигацию, когда чекбокс активен */
     header #toggler:checked ~ .navbar {
-        display: block; /* Показываем навигацию */
+        display: block;
     }
 
-    /* Оформление ссылок в навигации */
     header .navbar a {
         margin: 1.5rem;
         padding: 1.5rem;
@@ -318,7 +314,7 @@ header .fa-bars{
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: center; /* Центрируем карточки */
+    justify-content: center;
 }
 .product-card {
     display: flex;
@@ -378,12 +374,11 @@ input[type="radio"] {
 }
 
 
-/* Стили для контейнера карточек */
 .box-container {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: center; /* Центрируем карточки */
+    justify-content: center;
 }
 
 .product-card {
@@ -444,7 +439,6 @@ input[type="radio"] {
 }
 
 
-/* Стили для раздела с заказами */
 .orders .box-container {
     display: flex;
     flex-wrap: wrap;
@@ -601,14 +595,12 @@ input[type="radio"] {
 }
 
 
-/* Секция Contact Us */
 .contact-us {
     text-align: center;
     padding: 2rem 5%;
 }
 
 
-/* Информационные блоки */
 .info-boxes {
     display: flex;
     justify-content: center;
@@ -644,7 +636,6 @@ input[type="radio"] {
     margin: 0.2rem 0;
 }
 
-/* Форма */
 .contact-form {
     background: rgba(255, 51, 153, .05);
     padding: 2rem;
@@ -710,9 +701,9 @@ input[type="radio"] {
 }
 
 .confirmation, .payment {
-    margin-top: 100px; /* Отступ сверху в 100 пикселей */
-    padding: 20px; /* Дополнительный внутренний отступ */
-    text-align: center; /* Выровнять текст по центру, если нужно */
+    margin-top: 100px;
+    padding: 20px;
+    text-align: center;
 }
 .checkout h2{
 text-align: center;
