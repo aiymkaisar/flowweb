@@ -18,26 +18,23 @@ public class FlowerController {
     @Autowired
     private OrderService orderService;
 
-    // Главная страница
     @GetMapping("/flower")
     public String flowerPage(Model model) {
         model.addAttribute("product", productService.getAllProducts());
         return "flower";
     }
 
-    // Обработка перехода на /products
     @GetMapping("/products")
     public String productsPage(Model model) {
         model.addAttribute("product", productService.getAllProducts());
-        return "flower"; // Возвращаем ту же страницу
+        return "flower";
     }
     @GetMapping("/contact-us")
     public String contactPage(Model model) {
         model.addAttribute("contact-us", productService.getAllProducts());
-        return "flower"; // Возвращаем ту же страницу
+        return "flower";
     }
 
-    // Добавление товара в корзину
     @GetMapping("/add-to-cart/{productId}")
     public String addToCart(@PathVariable Long productId) {
         Product product = productService.getProductById(productId);
